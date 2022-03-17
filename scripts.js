@@ -31,7 +31,7 @@ function submitSubscription()
     } 
     catch{
         console.log("Error during script")
-        document.getElementById("submit-feedback").innerHTML = ""
+        document.getElementById("submit-feedback").innerHTML = "Fullfil all the forms"
     }
     console.log("submitSubscription - End")
 }
