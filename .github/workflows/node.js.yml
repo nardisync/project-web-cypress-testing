@@ -29,9 +29,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-
-    - name: Moving inside the app
-      run: cd ./cypress-testing
     
     - name: Installing Dependencies with ci
       run: npm ci
