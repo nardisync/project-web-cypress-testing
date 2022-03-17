@@ -23,13 +23,18 @@ function submitSubscription()
         var age     = document.getElementById("form-age").value
         var sex     = document.querySelector('input[name="sex-form"]:checked').value
         
-        var result = "Your name is " + name + " " + surname + ".\<br\>"
-        result += "A " + sex + " of " + age + " years. \<br\>" 
-        result += "The email that you insert is : '" + email + "'."
+        console.log(name + " - " + surname + " - " + email + " - " + age + " - " + sex )
 
-        document.getElementById("submit-feedback").innerHTML = result
+        if (name != "" && surname != "" && email != "" && age != "" && sex != "" ){
+            var result = "Your name is " + name + " " + surname + ".\<br\>"
+            result += "A " + sex + " of " + age + " years. \<br\>" 
+            result += "The email that you insert is : '" + email + "'."
+            document.getElementById("submit-feedback").innerHTML = result
+        } else {
+            throw SyntaxError
+        }
     } 
-    catch{
+    catch {
         console.log("Error during script")
         document.getElementById("submit-feedback").innerHTML = "Fullfil all the forms"
     }
