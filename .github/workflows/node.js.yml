@@ -33,7 +33,7 @@ jobs:
       run: npm i cypress 
 
     - name: Installing the Cypress Image-shapshots Plugin
-      run: npm i cypress-plugin-snapshots -S
+      run: npm i cypress-plugin-snapshots -S --force
 
     - name: Running the tests
       run: npm test
