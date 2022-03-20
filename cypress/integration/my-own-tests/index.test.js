@@ -87,3 +87,39 @@ describe('Test Suit: Simple Form', () =>{
     })
 
 })
+
+
+describe('Test Suit: Snapshots', () =>{
+    
+    beforeEach(() => cy.visit(app))
+
+    it('Test Case: Check Full Page UI with Snapshot', () => {
+        cy.get(".maindiv").then( compiledForm => {
+            cy.document().toMatchImageSnapshot()
+        })
+    })
+
+    it('Test Case: Check Form UI with Snapshot BEFORE writting', () => {
+        cy.get('input#form-name').type('Marco')
+        cy.get('input#form-surname').type('Nardi')
+        cy.get('input#form-email').type('emaildiprova@random.com')
+        cy.get('input#form-age').type('33')
+        cy.get('#sex-form-Male').check()
+        cy.get(".maindiv").then( compiledForm => {
+            cy.wrap(compiledForm).toMatchImageSnapshot()
+        })
+    })
+
+    it('Test Case: Check Form UI with Snapshot AFTER writting', () => {
+        cy.get('input#form-name').type('Marco')
+        cy.get('input#form-surname').type('Nardi')
+        cy.get('input#form-email').type('emaildiprova@random.com')
+        cy.get('input#form-age').type('33')
+        cy.get('#sex-form-Male').check()
+        cy.get('button#submit-button').click()
+        cy.get(".maindiv").then( compiledForm => {
+            cy.wrap(compiledForm).toMatchImageSnapshot()
+        })
+    })
+
+})
