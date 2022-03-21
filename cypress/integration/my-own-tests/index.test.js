@@ -96,6 +96,7 @@ describe('Test Suit: Snapshots', () =>{
     it('Test Case: Check Full Page UI with Snapshot', () => {
         cy.get(".maindiv").then( compiledForm => {
             cy.document().toMatchImageSnapshot()
+            
         })
     })
 
